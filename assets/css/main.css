@@ -28,7 +28,7 @@
 
 	.submenu li:hover{
 		color:#0191C8;
-		cursor: pointer; 
+		cursor: pointer;
 	}
 
 	body {
@@ -1812,7 +1812,11 @@
 
 		.image.featured {
 			display: block;
-			margin: 0 0 2em 0;
+			margin-left: auto;
+			margin-right: auto;
+			margin-bottom: 1em;
+			width:50%;
+			height: 50%;
 		}
 
 			.image.featured img {
