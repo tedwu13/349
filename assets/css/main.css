@@ -22,6 +22,15 @@
 		display: block;
 	}
 
+	.submenu{
+		text-transform: uppercase;
+	}
+
+	.submenu li:hover{
+		color:#0191C8;
+		cursor: pointer; 
+	}
+
 	body {
 		line-height: 1;
 	}

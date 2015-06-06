@@ -15,7 +15,10 @@
 					<h1 id="logo"><a href="index.html">EECS 349 <span>Machine Learning Project </span></a></h1>
 					<nav id="nav">
 						<ul>
-							<li class="current"><a href="index.html">Welcome</a></li>
+							<li class="current"><a href="index.html">Home</a></li>
+							<li><a href="#main">Report </a></li>
+							<li><a href="#cta">Contact Us</a></li>
+							<li><a href="#team">Team</a></li>
 						</ul>
 					</nav>
 				</header>
@@ -48,49 +51,42 @@
 
 					<header class="special container">
 						<span class="icon fa-bar-chart-o"></span>
-						<h2>As this is my <strong>twentieth</strong> freebie for HTML5 UP
-						<br />
-						I decided to give it a really creative name.</h2>
-						<p>Turns out <strong>Twenty</strong> was the best I could come up with. Anyway, lame name aside,
-						<br />
-						it's minimally designed, fully responsive, built on HTML5/CSS3/<strong>skel</strong>,
-						and, like all my stuff,
-						<br />
-						released for free under the <a href="http://html5up.net/license">Creative Commons Attribution 3.0</a> license. Have fun!</p>
+							<h2>Northwestern Course and Teacher Evaluation (CTEC) Scores Predictor</h2>
+							<p>Our objective is to use machine learning to train more than 10,000 examples scraped directly from our course and teacher evaluation website in order to analyze
+								many different attributes to predict an ultimate CTEC score for a course and a professor. </p>
+
 					</header>
 
 					<!-- One -->
 						<section class="wrapper style2 container special-alt">
 							<div class="row 50%">
 								<div class="4u 12u(narrower) important(narrower)">
+									<ul class="submenu">
+										<li class ='overview'>Project Overview</li>
+										<li class ='data_collection'>Data Collection</li>
+										<li class ='design_decisions'>Design Decisions</li>
 
-									<li class ='overview'>Project Overview</li>
-									<li class ='data_collection'>Data Collection</li>
-									<li class ='design_decisions'>Design Decisions</li>
-
-									<li class ='results'>Preliminary Results </li>
-									<li class= 'next_steps'>Next Steps </li>
+										<li class ='results'>Preliminary Results </li>
+										<li class= 'next_steps'>Next Steps </li>
+									</ul>
 
 								</div>
 
 
 								<div class="8u 12u(narrower)">
 
-									<header>
-										<h2>Northwestern Course and Teacher Evaluation (CTEC) Scores Predictor</h2>
-									</header>
 
-									<p id ='overview'>Project Overview </br></br> Our task is to predict the CTEC score of a course based on past reviews.
+									<p id ='overview'><strong>PROJECT OVERVIEW</strong></br> Our task is to predict the CTEC score of a course based on past reviews.
 										We want to  predict how each course’s CTEC score is influenced by each attribute.
-										This is important because it may allow us to see trends in what Northwestern students value in their classes.</p>
-									<p id ='data_collection'>Data Collection </br></br> The data set that we have utilized to date is EECS CTEC data that is scraped from CAESAR. Our attributes are the words in its reviews, as well as the class’s level, enrollment count, difficulty, and instructor. Our input will mainly consist of CTEC comments in a bag-of-words format, as well as other secondary information, and our output is the predicted CTEC score.
-									We have more than 5000 examples and we will probably partition our data using 10-fold cross validation. We will likely first shuffle our data, then split it into a 8/1/1 partition, although we can be flexible.</p>
+										This is important because it may allow us to see trends in what Northwestern students value in their classes.</p></br>
+									<p id ='data_collection'><strong>DATA COLLECTION </strong> </br> The data set that we have utilized to date is EECS CTEC data that is scraped from CAESAR. Our attributes are the words in its reviews, as well as the class’s level, enrollment count, difficulty, and instructor. Our input will mainly consist of CTEC comments in a bag-of-words format, as well as other secondary information, and our output is the predicted CTEC score.
+									We have more than 5000 examples and we will probably partition our data using 10-fold cross validation. We will likely first shuffle our data, then split it into a 8/1/1 partition, although we can be flexible.</p></br>
 
-									<p id ='design_decisions'>Design Decisions </br></br> Our design decisions include preprocessing the CTEC comments and making a bag of words out of the comments and then removing all the stop words.</p>
+									<p id ='design_decisions'><strong> DESIGN DECISIONS </strong> </br> Our design decisions include preprocessing the CTEC comments and making a bag of words out of the comments and then removing all the stop words.</p></br>
 
-									<p id ='results'>Results </br></br> Our preliminary results on the task is that we looked at all the CTEC comments and find occurrences of certain keywords. Our input would be an array with the keywords and key values would be the occurrences of the keywords in the CTEC comments. We looked at Neurolab, which is a simple and powerful Neural Network Library for Python. Contains based neural networks, train algorithms and flexible framework to create and explore other networks. We have tried using neurolab as an existing machine learning software package to create train samples and also create networks with the inputs. We are still in the process of figuring out how to use the Neurolab to achieve the proper results but to this point, we have all the data we need scraped from Northwestern Caesar.</p>
+									<p id ='results'><strong> PRELIMINARY RESULTS </strong></br></br> Our preliminary results on the task is that we looked at all the CTEC comments and find occurrences of certain keywords. Our input would be an array with the keywords and key values would be the occurrences of the keywords in the CTEC comments. We looked at Neurolab, which is a simple and powerful Neural Network Library for Python. Contains based neural networks, train algorithms and flexible framework to create and explore other networks. We have tried using neurolab as an existing machine learning software package to create train samples and also create networks with the inputs. We are still in the process of figuring out how to use the Neurolab to achieve the proper results but to this point, we have all the data we need scraped from Northwestern Caesar.</p></br>
 
-									<p id ='next_steps'>Next Steps </br></br> Our plans for the remainder of the quarter is to implement neural networks in order to train the data that we have right now and figure out the correlation between certain attributes to a professor’s CTEC scores (output). From a technical standpoint, one of the concerns we have is implementing the NeuroLab neural network algorithm since there is not a lot of documentation on how to use it. Another concern that we might encounter for the rest of the quarter is that we cannot find interesting correlations once we built our neural network.</p>
+									<p id ='next_steps'><strong> NEXT STEPS</strong></br></br> Our plans for the remainder of the quarter is to implement neural networks in order to train the data that we have right now and figure out the correlation between certain attributes to a professor’s CTEC scores (output). From a technical standpoint, one of the concerns we have is implementing the NeuroLab neural network algorithm since there is not a lot of documentation on how to use it. Another concern that we might encounter for the rest of the quarter is that we cannot find interesting correlations once we built our neural network.</p>
 
 
 
@@ -101,6 +97,39 @@
 
 				</article>
 
+
+				<section id="team" class="wrapper style3 container special">
+
+							<header class="major">
+								<h2>Our  <strong>team</strong></h2>
+							</header>
+
+							<div class="row">
+								<div class="6u 12u(narrower)">
+
+									<section>
+										<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
+										<header>
+											<h3>Software Engineer @ Splunk</h3>
+										</header>
+										<p>Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.</p>
+									</section>
+
+								</div>
+								<div class="6u 12u(narrower)">
+
+									<section>
+										<a href="#" class="image featured"><img src="images/pic02.jpg" alt="" /></a>
+										<header>
+											<h3>Software Engineer @ Chartboost</h3>
+										</header>
+										<p>Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.</p>
+									</section>
+
+								</div>
+							</div>
+
+						</section>
 			<!-- CTA -->
 				<section id="cta">
 
@@ -110,12 +139,15 @@
 					</header>
 					<footer>
 						<ul class="buttons">
-							<li><a href="#" class="button special">Contact Us</a></li>
-							<li><a href="#" class="button">Link to our github</a></li>
+							<li><a href="mailto:tedwu2016@u.northwestern.edu" class="button special">Contact Us</a></li>
+							<li><a href="https://github.com/tedwu13/northwesternCTECpredictor" class="button">Link to our github</a></li>
 						</ul>
 					</footer>
 
 				</section>
+
+
+
 
 		</div>
 
