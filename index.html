@@ -64,12 +64,12 @@
 							<div class="row 50%">
 								<div class="4u 12u(narrower) important(narrower)">
 
-									<li>Project Overview</li>
-									<li>Data Collection</li>
-									<li>Design Decisions</li>
+									<li class ='overview'>Project Overview</li>
+									<li class ='data_collection'>Data Collection</li>
+									<li class ='design_decisions'>Design Decisions</li>
 
-									<li>Preliminary Results </li>
-									<li>Next Steps </li>
+									<li class ='results'>Preliminary Results </li>
+									<li class= 'next_steps'>Next Steps </li>
 
 								</div>
 
@@ -80,17 +80,19 @@
 										<h2>Northwestern Course and Teacher Evaluation (CTEC) Scores Predictor</h2>
 									</header>
 
-									<p>
+									<p id ='overview'>Our task is to predict the CTEC score of a course based on past reviews.
+										We want to  predict how each course’s CTEC score is influenced by each attribute.
+										This is important because it may allow us to see trends in what Northwestern students value in their classes.</p>
+									<p id ='data_collection'>The data set that we have utilized to date is EECS CTEC data that is scraped from CAESAR. Our attributes are the words in its reviews, as well as the class’s level, enrollment count, difficulty, and instructor. Our input will mainly consist of CTEC comments in a bag-of-words format, as well as other secondary information, and our output is the predicted CTEC score.
+									We have more than 5000 examples and we will probably partition our data using 10-fold cross validation. We will likely first shuffle our data, then split it into a 8/1/1 partition, although we can be flexible.</p>
 
-										Our task is to predict the CTEC score of a course based on past reviews. We want to  predict how each course’s CTEC score is influenced by each attribute. This is important because it may allow us to see trends in what Northwestern students value in their classes.
+									<p id ='design_decisions'></p>
 
-The data set that we have utilized to date is EECS CTEC data that is scraped from CAESAR. Our attributes are the words in its reviews, as well as the class’s level, enrollment count, difficulty, and instructor. Our input will mainly consist of CTEC comments in a bag-of-words format, as well as other secondary information, and our output is the predicted CTEC score. We have more than 5000 examples and we will probably partition our data using 10-fold cross validation. We will likely first shuffle our data, then split it into a 8/1/1 partition, although we can be flexible.
+									<p id ='results'>Our preliminary results on the task is that we looked at all the CTEC comments and find occurrences of certain keywords. Our input would be an array with the keywords and key values would be the occurrences of the keywords in the CTEC comments. We looked at Neurolab, which is a simple and powerful Neural Network Library for Python. Contains based neural networks, train algorithms and flexible framework to create and explore other networks. We have tried using neurolab as an existing machine learning software package to create train samples and also create networks with the inputs. We are still in the process of figuring out how to use the Neurolab to achieve the proper results but to this point, we have all the data we need scraped from Northwestern Caesar.</p>
 
-Our preliminary results on the task is that we looked at all the CTEC comments and find occurrences of certain keywords. Our input would be an array with the keywords and key values would be the occurrences of the keywords in the CTEC comments. We looked at Neurolab, which is a simple and powerful Neural Network Library for Python. Contains based neural networks, train algorithms and flexible framework to create and explore other networks. We have tried using neurolab as an existing machine learning software package to create train samples and also create networks with the inputs. We are still in the process of figuring out how to use the Neurolab to achieve the proper results but to this point, we have all the data we need scraped from Northwestern Caesar.
+									<p id ='next_steps'>Our plans for the remainder of the quarter is to implement neural networks in order to train the data that we have right now and figure out the correlation between certain attributes to a professor’s CTEC scores (output). From a technical standpoint, one of the concerns we have is implementing the NeuroLab neural network algorithm since there is not a lot of documentation on how to use it. Another concern that we might encounter for the rest of the quarter is that we cannot find interesting correlations once we built our neural network.</p>
 
-	Our plans for the remainder of the quarter is to implement neural networks in order to train the data that we have right now and figure out the correlation between certain attributes to a professor’s CTEC scores (output). From a technical standpoint, one of the concerns we have is implementing the NeuroLab neural network algorithm since there is not a lot of documentation on how to use it. Another concern that we might encounter for the rest of the quarter is that we cannot find interesting correlations once we built our neural network.
 
-</p>
 
 								</div>
 
