@@ -6,6 +6,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 
+
+
 	</head>
 	<body class="index">
 		<div id="page-wrapper">
@@ -18,7 +20,7 @@
 							<li class="current"><a href="index.html">Home</a></li>
 							<li><a href="#main">Report </a></li>
 							<li><a href="#cta">Contact Us</a></li>
-							<li><a href="#team">Team</a></li>
+							<li><a href="#team">Our Team</a></li>
 						</ul>
 					</nav>
 				</header>
@@ -32,16 +34,12 @@
 					<div class="inner">
 
 						<header>
-							<h2>Northwestern CTEC Scores Predictor</h2>
-						</br>
-							<h3>Michael Wang and Ted Wu </h3>
-						</header>
+							<h2>Northwestern CTEC Scores Trend Analyzer</h2>
 
-						<ul class="buttons">
-							<li><a href="mailto:tedwu2016@u.northwestern.edu" class="button special">Contact Us</a></li>
-							<li><a href="https://github.com/tedwu13/northwesternCTECpredictor" class="button">Link to our github</a></li>
-						</ul>
-						This CTEC Scores predictor analyzes what students say about a course and the professor teaching the course. We are trying to use data analytics to improve the ultimate Northwestern student experience.
+						</header>
+						<h3>By: Michael Wang and Ted Wu </h3>
+
+						We built a CTEC Scores predictor to analyze students' feedback about Northwestern professors. We are aiming to utilize data analytics to improve the ultimate Northwestern student experience.
 
 						<footer>
 							<ul class="buttons vertical">
@@ -55,8 +53,7 @@
 
 
 				<!-- 1. Begin with an Extended Abstract that lists:
-				c. At least one contact email address
-				d. The name of the course and university
+
 				e. A 3-4 paragraph synopsis of what this work is about
 				i. motivate the problem: (what problem are you trying to solve and why
 				should we care?)
@@ -74,9 +71,8 @@
 
 					<header class="special container">
 						<span class="icon fa-bar-chart-o"></span>
-							<h2>Northwestern Course and Teacher Evaluation (CTEC) Scores Predictor</h2>
 							<p>Our objective is to use machine learning to train more than 10,000 examples scraped directly from our course and teacher evaluation website in order to analyze
-								many different attributes to predict an ultimate CTEC score for a course and a professor. </p>
+								many different attributes to analyze the trends and to predict the probability of a professor getting a CTEC score above a 5. </p>
 
 					</header>
 
@@ -85,12 +81,11 @@
 							<div class="row 50%">
 								<div class="4u 12u(narrower) important(narrower)">
 									<ul class="submenu">
-										<li class ='overview'>Project Overview</li>
-										<li class ='data_collection'>Data Collection</li>
-										<li class ='design_decisions'>Design Decisions</li>
+										<li class ='problem'>Problem</li>
+										<li class ='solution'>Solution</li>
+										<li class ='methods'>Testing and Training</li>
 
 										<li class ='results'>Preliminary Results </li>
-										<li class= 'next_steps'>Next Steps </li>
 									</ul>
 
 								</div>
@@ -99,18 +94,12 @@
 								<div class="8u 12u(narrower)">
 
 
-									<p id ='overview'><strong>PROJECT OVERVIEW</strong></br> Our task is to predict the CTEC score of a course based on past reviews.
-										We want to  predict how each course’s CTEC score is influenced by each attribute.
-										This is important because it may allow us to see trends in what Northwestern students value in their classes.</p></br>
-									<p id ='data_collection'><strong>DATA COLLECTION </strong> </br> The data set that we have utilized to date is EECS CTEC data that is scraped from CAESAR. Our attributes are the words in its reviews, as well as the class’s level, enrollment count, difficulty, and instructor. Our input will mainly consist of CTEC comments in a bag-of-words format, as well as other secondary information, and our output is the predicted CTEC score.
-									We have more than 5000 examples and we will probably partition our data using 10-fold cross validation. We will likely first shuffle our data, then split it into a 8/1/1 partition, although we can be flexible.</p></br>
+									<p id ='problem'><strong>The Problem</strong></br> We were interested in seeing how we could use the power of machine learning to sift through CTECs. Currently, there is an enormous corpus of data from CTECs, which include review scores, actual reviews, and metadata. We hope that by using the correct machine learning algorithms, we can spot trends predicative of high CTEC scores.</p></br>
+									<p id ='solution'><strong>Solution </strong> </br>Our attributes come from a bag of words of size 1000, where half the words comprise the most common words found in CTECs, and the other half comprise names of professors. Our input is a list of 1000 attributes, where the value is 1 if it exists and 0 otherwise. For our learner, we used a Bayesian Logistic Regression algorithm. We got the best result from this, likely because this learner works well for problems involving bags of words and situations where each attribute may or may not contribute a small amount in predicting the final output (but many attributes may be accurate in aggregate).</p></br>
 
-									<p id ='design_decisions'><strong> DESIGN DECISIONS </strong> </br> Our design decisions include preprocessing the CTEC comments and making a bag of words out of the comments and then removing all the stop words.</p></br>
+									<p id ='methods'><strong>TESTING AND TRAINING </strong> </br>	We tested and trained our data using Weka. Using a data scraper created by another classmate, Al Johri, we scraped Northwestern’s CTEC database for all CTECs related to the EECS department. We used that data to create a dictionary mapping to the aforementioned bag of words, and used that to generate a bag for each CTEC, outputting our final results in Weka’s ARFF format. Our “class” was whether or not the instructor score for the CTEC was above or below a 5 (we will elaborate more on that later). Finally, we used Weka to try different algorithms until we found one that worked the best. We measured our success in terms of maximizing accuracy and f-score, using the ZeroR classifier as a baseline.</p></br>
 
-									<p id ='results'><strong> PRELIMINARY RESULTS </strong></br></br> Our preliminary results on the task is that we looked at all the CTEC comments and find occurrences of certain keywords. Our input would be an array with the keywords and key values would be the occurrences of the keywords in the CTEC comments. We looked at Neurolab, which is a simple and powerful Neural Network Library for Python. Contains based neural networks, train algorithms and flexible framework to create and explore other networks. We have tried using neurolab as an existing machine learning software package to create train samples and also create networks with the inputs. We are still in the process of figuring out how to use the Neurolab to achieve the proper results but to this point, we have all the data we need scraped from Northwestern Caesar.</p></br>
-
-									<p id ='next_steps'><strong> NEXT STEPS</strong></br></br> Our plans for the remainder of the quarter is to implement neural networks in order to train the data that we have right now and figure out the correlation between certain attributes to a professor’s CTEC scores (output). From a technical standpoint, one of the concerns we have is implementing the NeuroLab neural network algorithm since there is not a lot of documentation on how to use it. Another concern that we might encounter for the rest of the quarter is that we cannot find interesting correlations once we built our neural network.</p>
-
+									<p id ='results'><strong> PRELIMINARY RESULTS </strong></br></br>Our final classifier had both an accuracy and f-score of 77.7%, which is not too bad compared to our ZeroR baseline accuracy of 55%. Furthermore, we were able to create a list of words and Professor names, as well as their correlations with higher CTEC scores (both positive and negative). Although this is far from conclusive, we believe that a critical analysis of our results will show that this warrants a more detailed look.</p></br>
 
 
 								</div>
@@ -153,13 +142,35 @@
 							</div>
 
 						</section>
+			<!-- CTA -->
+				<section id="cta">
 
+					<header>
+						<h2>Want to learn more about the <strong>project</strong>?</h2>
+						<p>Contact us or look at our code documentation on github!</p>
+					</header>
+					<footer>
+						<ul class="buttons">
+							<li><a href="mailto:tedwu2016@u.northwestern.edu" class="button special">Contact Us</a></li>
+							<li><a href="https://github.com/tedwu13/northwesternCTECpredictor" class="button">Link to our github</a></li>
+						</ul>
+					</footer>
+
+				</section>
+
+
+				<!-- create container element for visualization -->
+				<div id="viz"></div>
 
 
 
 
 		</div>
-
+		<!-- load D3js -->
+		<script src="http://www.d3plus.org/js/d3.js"></script>
+		<!-- load D3plus after D3js -->
+		<script src="http://www.d3plus.org/js/d3plus.js"></script>
+		<script src="assets/js/visualization.js"></script>
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.dropotron.min.js"></script>
