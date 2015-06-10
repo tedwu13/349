@@ -67,29 +67,66 @@
 							<div class="row 50%">
 								<div class="4u 12u(narrower) important(narrower)">
 									<ul class="submenu">
-										<li class ='problem'>Problem</li>
-										<li class ='solution'>Solution</li>
-										<li class ='methods'>Testing and Training</li>
-
-										<li class ='results'>Preliminary Results </li>
+										<li class ='summary'>Summary</li>
+										<li class ='final-report'>Final Report</li>
+										<li class ='introduction'>Introduction</li>
+										<li class ='procedure'>Procedure</li>
+										<li class ='results'>Results</li>
 									</ul>
-
 								</div>
-
 
 								<div class="8u 12u(narrower)">
+									<p id="summary">
+										<strong>Summary</strong></br>
+										We were interested in seeing how we could use the power of machine learning to sift through CTECs. Currently, there is an enormous corpus of data from CTECs, which include review scores, actual reviews, and metadata. We hope that by using the correct machine learning algorithms, we can spot trends  predicative of high CTEC scores.
+										</br></br>Our attributes come from a bag of words of size 1000, where half the words comprise the most common words found in CTECs, and the other half comprise names of professors. Our input is a list of 1000 attributes, where the value is 1 if it exists and 0 otherwise. For our learner, we used a Bayesian Logistic Regression algorithm. We got the best result from this, likely because Bayesian techniques work well for problems involving bags of words and logistic techniques work well for situations where each attribute may or may not contribute a small amount in predicting the final output (but many attributes may be accurate in aggregate).
+										</br></br>We tested and trained our data using Weka. Using a data scraper created by another classmate, Al Johri, we scraped Northwestern’s CTEC database for all CTECs related to the EECS department. We used that data to create a dictionary mapping to the aforementioned bag of words, and used that to generate a bag for each CTEC, outputting our final results in Weka’s ARFF format. Our “class” was whether or not the instructor score for the CTEC was above or below a 5 (we will elaborate more on that later). Finally, we used Weka to try different algorithms until we found one that worked the best. We measured our success in terms of maximizing accuracy and f-score, using the ZeroR classifier as a baseline.
+										</br></br>Our final classifier had both an accuracy and f-score of 77.7%, which is not too bad compared to our ZeroR baseline accuracy of 55%. Furthermore, we were able to create a list of words and Professor names, as well as their correlations with higher CTEC scores (both positive and negative). Although this is far from conclusive, we believe that a critical analysis of our results will show that this warrants a more detailed look.
+									</p>
 
+									<p id="final-report">
+										<strong>Final Report</strong></br>
+									</p>
 
-									<p id ='problem'><strong>The Problem</strong></br> We were interested in seeing how we could use the power of machine learning to sift through CTECs. Currently, there is an enormous corpus of data from CTECs, which include review scores, actual reviews, and metadata. We hope that by using the correct machine learning algorithms, we can spot trends predicative of high CTEC scores.</p></br>
-									<p id ='solution'><strong>Solution </strong> </br>Our attributes come from a bag of words of size 1000, where half the words comprise the most common words found in CTECs, and the other half comprise names of professors. Our input is a list of 1000 attributes, where the value is 1 if it exists and 0 otherwise. For our learner, we used a Bayesian Logistic Regression algorithm. We got the best result from this, likely because this learner works well for problems involving bags of words and situations where each attribute may or may not contribute a small amount in predicting the final output (but many attributes may be accurate in aggregate).</p></br>
+									<p id="introduction">
+										<strong>Introduction</strong></br>
+										Our original idea was to take words from CTECs and feed them in a bag-of-words fashion to a neural network, in order to actually predict the score of the CTEC itself. Because the scraping tool was already created for us by Al Johri, we simply pulled all EECS-related CTECs in the database. We ended up scraping CTECs that were not related to EECS as well, but we ended up keeping them, since we felt it would increase the robustness of our algorithm. Our original scraped data came in the form of data in a MongoDB, which we soon transferred to a CSV file, where each row was a CTEC and the columns stood for various attributes, including scores, Professors, course times, and the CTEC reviews themselves.
+									</p>
 
-									<p id ='methods'><strong>TESTING AND TRAINING </strong> </br>	We tested and trained our data using Weka. Using a data scraper created by another classmate, Al Johri, we scraped Northwestern’s CTEC database for all CTECs related to the EECS department. We used that data to create a dictionary mapping to the aforementioned bag of words, and used that to generate a bag for each CTEC, outputting our final results in Weka’s ARFF format. Our “class” was whether or not the instructor score for the CTEC was above or below a 5 (we will elaborate more on that later). Finally, we used Weka to try different algorithms until we found one that worked the best. We measured our success in terms of maximizing accuracy and f-score, using the ZeroR classifier as a baseline.</p></br>
+									<p id="procedure">
+										<strong>Procedure</strong></br>
+										We started by looking into PyBrain, since our original plan was to use neural nets. However, we eventually decided to use Weka because of how flexible it was.
+										</br></br>The first thing we tried was a bag of size 5000. It became clear that no matter what we did, this would not have been tractable because Weka kept running out of memory. For what it was worth, we were running roughly 15k examples with 5000 attributes per example, so it is easy to see how that could have been overwhelming. We then tried 1000, 500, and 100 attributes, and we felt that 500 was a good compromise for the algorithms we were using. Furthermore, along the way we decided to drop neural nets and do a nominal classification-based approach, as this seemed to be much more tractable. For the aforementioned cases, we tried doing both naïve bayes and baysian logistical regression. Instead of trying to predict CTEC scores as our class, we decided to split CTECs into two classifications, CTECs with an instructor score of above 5, and those with an instructor score of below 5. The reason, we believe, is that a score of 5 split the CTECs in half, and thus it was more or less the median value. Although the true “median” score of CTECs is 3, as the scale is out of 6, we felt that letting 5 be the dividing line was allowable. After all, if 5 is the average CTEC given by students, is it completely wrong to say that CTECs above 5 are “good”, and ones under 5 are below average (from a performance standpoint)? By using a nominal classification, we were able to do naïve bayes and baysian logistical regression. We sum up our results in the following table:
+										</br></br>
+										<tr>
+											<td>(Accuracy / F-Score)</td>
+											<td>Naïve Bayes</td>
+											<td>Bayesian Logistic Regression</td>
+										</tr>
+										<tr>
+											<td>100 Attributes</td>
+											<td>60.8% / 0.609</td>
+											<td>70.0% / 0.698</td>
+										</tr>
+										<tr>
+											<td>500 Attributes</td>
+											<td>-</td>
+											<td>75.2% / 0.752</td>
+										</tr>
+										<tr>
+											<td>1000 Attributes</td>
+											<td>62.0% / 0.616</td>
+											<td>-</td>
+										</tr>
+										We opted not to try Naïve Bayes for 500 attributes because we felt it would not have outperformed Bayesian Regression, and we did not try Regression for 1000 attributes because we ran into memory issues again. Thus, we decided to use 500 attributes and Baysian Logistic Regression. It was at this time that we also opted to add professors in. Before, we were drawing words into our bag by pulling the most common words from CTEC reviews, but we added 500 professors to the bag explicitly by searching through the CTECs and adding the 500 most commonly review professors as keys in the bag.
+									</p>
 
-									<p id ='results'><strong> PRELIMINARY RESULTS </strong></br></br>Our final classifier had both an accuracy and f-score of 77.7%, which is not too bad compared to our ZeroR baseline accuracy of 55%. Furthermore, we were able to create a list of words and Professor names, as well as their correlations with higher CTEC scores (both positive and negative). Although this is far from conclusive, we believe that a critical analysis of our results will show that this warrants a more detailed look.</p></br>
-
+									<p id="results">
+										<strong>Results and Analysis</strong></br>
+										Our final model was as such: The input is 14811 examples, 1000 norminal attributes, 500 of which represent the presence (1 for present, 0 for not) of the most common words across all CTECs, the other 500 of which represent the 500 most commonly reviewed professors. Our class is a nominal attribute, signifying whether the CTEC instructor score is above 5 or below 5 (the average). We used Bayesian Logical Regression to draw relationships between the two, and ended up with a model with an accuracy of 77.7 percent and an f-score of 0.777. A plot of the coefficiants utilized is available in the plot above: More negative coefficients signify that a word or professor’s presence in a CTEC makes it more likely that CTEC will have an instructor score less than 5, and the opposite is true for more positive coefficients. Hovering over the relevant points will give you more information.
+									</p>
 
 								</div>
-
 							</div>
 						</section>
 
