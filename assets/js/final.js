@@ -1,18 +1,23 @@
 $(document).ready(function() {
 
 
-    $('.problem').click(function(){
-        $('html, body').animate({scrollTop:($('#problem').position().top)-100}, 'slow');
+    $('.summary').click(function(){
+        $('html, body').animate({scrollTop:($('#summary').position().top)-100}, 'slow');
         return false;
     });
 
-
-    $('.solution').click(function(){
-        $('html, body').animate({scrollTop:($('#solution').position().top)-100}, 'slow');
+    $('.final-report').click(function(){
+        $('html, body').animate({scrollTop:($('#final-report').position().top)-100}, 'slow');
         return false;
     });
-    $('.methods').click(function(){
-        $('html, body').animate({scrollTop:($('#methods').position().top)-100}, 'slow');
+
+    $('.introduction').click(function(){
+        $('html, body').animate({scrollTop:($('#introduction').position().top)-100}, 'slow');
+        return false;
+    });
+
+    $('.procedure').click(function(){
+        $('html, body').animate({scrollTop:($('#procedure').position().top)-100}, 'slow');
         return false;
     });
 
