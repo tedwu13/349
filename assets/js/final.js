@@ -1,28 +1,28 @@
 $(document).ready(function() {
 
 
-    $('.objective').click(function(){
-        $('html, body').animate({scrollTop:($('#objective').position().top)-100}, 'slow');
+    $('.summary').click(function(){
+        $('html, body').animate({scrollTop:($('#summary').position().top)-100}, 'slow');
         return false;
     });
 
-
-    $('.data_collection').click(function(){
-        $('html, body').animate({scrollTop:($('#data_collection').position().top)-100}, 'slow');
+    $('.final-report').click(function(){
+        $('html, body').animate({scrollTop:($('#final-report').position().top)-100}, 'slow');
         return false;
     });
-    $('.design_decisions').click(function(){
-        $('html, body').animate({scrollTop:($('#design_decisions').position().top)-100}, 'slow');
+
+    $('.introduction').click(function(){
+        $('html, body').animate({scrollTop:($('#introduction').position().top)-100}, 'slow');
+        return false;
+    });
+
+    $('.procedure').click(function(){
+        $('html, body').animate({scrollTop:($('#procedure').position().top)-100}, 'slow');
         return false;
     });
 
     $('.results').click(function(){
         $('html, body').animate({scrollTop:($('#results').position().top)-100}, 'slow');
-        return false;
-    });
-
-    $('.next_steps').click(function(){
-        $('html, body').animate({scrollTop:($('#next_steps').position().top)-100}, 'slow');
         return false;
     });
 
